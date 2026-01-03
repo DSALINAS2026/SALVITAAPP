@@ -1,0 +1,859 @@
+<!-- MODAL: AGREGAR CHASIS -->
+<div class="modalBackdrop" id="modalAdd">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Agregar Chasis</h3>
+      <button class="btn secondary" onclick="closeAdd()">Cerrar</button>
+    </div>
+
+    <div class="grid" style="margin-top:10px;">
+      <div>
+        <label class="muted"><b>Interno</b></label>
+        <input id="fInterno" placeholder="Ej: 1234" />
+      </div>
+      <div>
+        <label class="muted"><b>Dominio</b></label>
+        <input id="fDominio" placeholder="Dominio/Patente (Ej: AE123BC)" />
+      </div>
+      <div>
+        <label class="muted"><b>Sociedad</b></label>
+        <input id="fSociedad" placeholder="Dueño/Empresa" />
+      </div>
+      <div>
+        <label class="muted"><b>Depósito</b></label>
+        <input id="fDeposito" placeholder="Ej: Central / Taller / Base" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Tipo</b></label>
+        <input id="fTipo" placeholder="Tipo de chasis (Ej: Semi / Bus / Camión)" />
+      </div>
+      <div>
+        <label class="muted"><b>Km Recorridos</b></label>
+        <input id="fKm" placeholder="0" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Capacidad de Carga</b></label>
+        <input id="fCapacidad" placeholder="Ej: 30T / 45000kg" />
+      </div>
+      <div>
+        <label class="muted"><b>Nro. Chasis</b></label>
+        <input id="fNroChasis" placeholder="Número de chasis" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Marca</b></label>
+        <input id="fMarca" placeholder="Ej: Mercedes / Scania / Volvo" />
+      </div>
+      <div>
+        <label class="muted"><b>Modelo</b></label>
+        <input id="fModelo" placeholder="Ej: 113 / K310 / etc." />
+      </div>
+
+      <div>
+        <label class="muted"><b>Motor</b></label>
+        <input id="fMotor" placeholder="Ej: OM457 / DC13 / etc." />
+      </div>
+      <div>
+        <label class="muted"><b>Nro Motor</b></label>
+        <input id="fNroMotor" placeholder="Número de motor" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Año</b></label>
+        <input id="fAnio" placeholder="Ej: 2018" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Eje</b></label>
+        <select id="fEje"></select>
+      </div>
+
+      <div>
+        <label class="muted"><b>Mapa Cubierta</b></label>
+        <select id="fMapa"></select>
+      </div>
+
+      <div>
+        <label class="muted"><b>Carrocería</b></label>
+        <select id="fCarroceria"></select>
+      </div>
+
+      <div>
+        <label class="muted"><b>Estado</b></label>
+        <select id="fEstado">
+          <option value="activo">activo</option>
+          <option value="inactivo">inactivo</option>
+          <option value="baja">baja</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeAdd()">Cancelar</button>
+      <button class="btn" id="btnSaveAdd" onclick="saveAdd()">Guardar</button>
+    </div>
+    <div id="addMsg" class="error" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- MODAL: EDITAR CHASIS -->
+<div class="modalBackdrop" id="modalEdit">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Editar Chasis</h3>
+      <button class="btn secondary" onclick="closeEdit()">Cerrar</button>
+    </div>
+
+    <div class="grid" style="margin-top:10px;">
+      <div>
+        <label class="muted"><b>Interno</b></label>
+        <input id="eInterno" placeholder="Ej: 1234" />
+        <div class="hint">Completar Interno y Dominio es obligatorio.</div>
+      </div>
+      <div>
+        <label class="muted"><b>Dominio</b></label>
+        <input id="eDominio" placeholder="Dominio/Patente (Ej: AE123BC)" />
+      </div>
+      <div>
+        <label class="muted"><b>Sociedad</b></label>
+        <input id="eSociedad" placeholder="Dueño/Empresa" />
+      </div>
+      <div>
+        <label class="muted"><b>Depósito</b></label>
+        <input id="eDeposito" placeholder="Ej: Central / Taller / Base" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Tipo</b></label>
+        <input id="eTipo" placeholder="Tipo de chasis" />
+      </div>
+      <div>
+        <label class="muted"><b>Km Recorridos</b></label>
+        <input id="eKm" placeholder="0" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Capacidad de Carga</b></label>
+        <input id="eCapacidad" placeholder="Ej: 30T / 45000kg" />
+      </div>
+      <div>
+        <label class="muted"><b>Nro. Chasis</b></label>
+        <input id="eNroChasis" placeholder="Número de chasis" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Marca</b></label>
+        <input id="eMarca" placeholder="Marca" />
+      </div>
+      <div>
+        <label class="muted"><b>Modelo</b></label>
+        <input id="eModelo" placeholder="Modelo" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Motor</b></label>
+        <input id="eMotor" placeholder="Motor" />
+      </div>
+      <div>
+        <label class="muted"><b>Nro Motor</b></label>
+        <input id="eNroMotor" placeholder="Número de motor" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Año</b></label>
+        <input id="eAnio" placeholder="Ej: 2018" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Eje</b></label>
+        <select id="eEje"></select>
+      </div>
+
+      <div>
+        <label class="muted"><b>Mapa Cubierta</b></label>
+        <select id="eMapa"></select>
+      </div>
+
+      <div>
+        <label class="muted"><b>Carrocería</b></label>
+        <select id="eCarroceria"></select>
+      </div>
+
+      <div>
+        <label class="muted"><b>Estado</b></label>
+        <select id="eEstado">
+          <option value="activo">activo</option>
+          <option value="inactivo">inactivo</option>
+          <option value="baja">baja</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeEdit()">Cancelar</button>
+      <button class="btn" id="btnSaveEdit" onclick="saveEdit()">Guardar cambios</button>
+    </div>
+    <div id="editMsg" class="error" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- MODAL: NUEVO MOVIMIENTO (PRO) -->
+<div class="modalBackdrop" id="modalMov">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Nuevo Movimiento</h3>
+      <button class="btn secondary" onclick="closeMov()">Cerrar</button>
+    </div>
+
+    <div class="grid" style="margin-top:10px;">
+      <div>
+        <label class="muted"><b>Unidad</b></label>
+        <select id="mUnidadSel"></select>
+        <div class="hint">Interno — Dominio — Sociedad</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Tipo</b></label>
+        <div class="toggleRow">
+          <button class="tbtn" id="tIngreso" onclick="setTipoMov('ingreso')">Ingreso</button>
+          <button class="tbtn" id="tEgreso" onclick="setTipoMov('egreso')">Egreso</button>
+        </div>
+        <div class="hint">Elegí uno (obligatorio).</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Fecha</b></label>
+        <input id="mFecha" type="date" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Hora</b></label>
+        <input id="mHora" type="time" />
+      </div>
+
+      <div>
+        <label class="muted"><b>Depósito</b></label>
+        <select id="mDepositoSel"></select>
+        <div class="hint">Si no está, elegí “Otro…”</div>
+      </div>
+
+      <div id="mDepositoOtherWrap" style="display:none;">
+        <label class="muted"><b>Depósito (Otro)</b></label>
+        <input id="mDepositoOther" placeholder="Escribí depósito..." />
+      </div>
+
+      <div>
+        <label class="muted"><b>Último odómetro (auto)</b></label>
+        <input id="mUlt" disabled />
+        <div class="hint">Se completa al seleccionar unidad.</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Odómetro</b></label>
+        <input id="mOdo" placeholder="Ej: 250000" />
+        <div class="hint" id="mOdoHint">No puede ser menor al último.</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Km recorridos (auto)</b></label>
+        <input id="mKm" disabled />
+        <div class="hint">Se calcula al escribir el odómetro.</div>
+      </div>
+
+      <div style="grid-column:1/-1">
+        <label class="muted"><b>Observación</b></label>
+        <textarea id="mObs" placeholder="(Opcional) Detalle del movimiento"></textarea>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeMov()">Cancelar</button>
+      <button class="btn" id="btnSaveMov" onclick="saveMov()">Guardar movimiento</button>
+    </div>
+    <div id="movMsg" class="error" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- MODAL: NUEVA TAREA -->
+<div class="modalBackdrop" id="modalTarea">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Nueva Tarea</h3>
+      <button class="btn secondary" onclick="closeTarea()">Cerrar</button>
+    </div>
+
+    <div class="grid" style="margin-top:10px;">
+      <div>
+        <label class="muted"><b>Código</b></label>
+        <input id="tcodigo" placeholder="Ej: PREV-001" />
+        <div class="hint">Obligatorio</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Nombre</b></label>
+        <input id="tnombre" placeholder="Ej: Cambio de aceite motor" />
+        <div class="hint">Obligatorio</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Sistema</b></label>
+        <select id="tsistema"></select>
+        <div class="hint">Obligatorio</div>
+      </div>
+
+      <div>
+        <label class="muted"><b>Subsistema</b></label>
+        <select id="tsubsistema"></select>
+        <div class="hint">Obligatorio</div>
+      </div>
+
+      <div style="grid-column:1/-1">
+        <label class="muted"><b>Sector</b></label>
+        <select id="tsector"></select>
+        <div class="hint">Obligatorio</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeTarea()">Cancelar</button>
+      <button class="btn" id="btnSaveTarea" onclick="saveTarea()">Guardar tarea</button>
+    </div>
+
+    <div id="tMsg" class="error" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- MODAL: CONFIRMAR BORRADO TAREA -->
+<div class="modalBackdrop" id="modalConfirmTarea" style="display:none">
+  <div class="modal" style="max-width:560px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Confirmar eliminación</h3>
+      <button class="btn secondary" onclick="closeConfirmTarea()">Cerrar</button>
+    </div>
+
+    <div class="card" style="margin-top:10px;border-radius:14px">
+      <div class="muted" style="font-weight:900;margin-bottom:6px">Vas a eliminar esta tarea:</div>
+      <div style="display:grid;gap:6px">
+        <div><b>Código:</b> <span id="cDelCod">-</span></div>
+        <div><b>Nombre:</b> <span id="cDelNom">-</span></div>
+        <div class="muted" style="font-size:12px;margin-top:6px">
+          Esto la marca como <b>TRUE</b> en “borrado” y no se verá (salvo que actives “Ver eliminados”).
+        </div>
+      </div>
+      <div id="cDelMsg" class="error" style="display:none"></div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeConfirmTarea()">Cancelar</button>
+      <button class="btn" id="btnConfirmDelTarea" onclick="doBorrarTarea()">Sí, eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: VER OT (OJITO) -->
+<div class="modalBackdrop" id="modalOTView">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Consulta OT</h3>
+      <button class="btn secondary" onclick="closeOTView()">Cerrar</button>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px">
+      <div class="card">
+        <div class="muted"><b>OT</b></div>
+        <div style="display:grid;gap:6px;margin-top:8px">
+          <div><b>N°:</b> <span id="vNro">-</span></div>
+          <div><b>Tipo:</b> <span id="vTipo">-</span></div>
+          <div><b>Estado:</b> <span id="vEstado">-</span></div>
+          <div><b>Fecha:</b> <span id="vFecha">-</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="muted"><b>Unidad</b></div>
+        <div style="display:grid;gap:6px;margin-top:8px">
+          <div><b>Interno:</b> <span id="vInt">-</span></div>
+          <div><b>Dominio:</b> <span id="vDom">-</span></div>
+          <div><b>Sociedad:</b> <span id="vSoc">-</span></div>
+          <div><b>Depósito:</b> <span id="vDep">-</span></div>
+          <div><b>Sector:</b> <span id="vSec">-</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="muted"><b>Descripción</b></div>
+      <div id="vDesc" style="white-space:pre-wrap;margin-top:8px"></div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="muted"><b>Tareas</b></div>
+      <div class="tasksBox" id="vTasks"></div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap">
+      <button class="btn secondary" onclick="printOT()">🖨️ Imprimir OT</button>
+      <button class="btn secondary" id="btnOTConfirm" onclick="openOTConfirm()">✅ Confirmar</button>
+      <button class="btn" onclick="openOTAnular()">⛔ Anular</button>
+    </div>
+
+    <div id="vOTMsg" class="error" style="display:none"></div>
+  </div>
+</div>
+
+
+<!-- MODAL: NUEVA OT (PREVENTIVA) -->
+<div class="modalBackdrop" id="modalOTNewPrev">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Nueva OT (Preventiva)</h3>
+      <button class="btn secondary" onclick="closeOTNewPrev()">Cerrar</button>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px">
+      <div class="card">
+        <div class="muted"><b>Datos de la OT</b></div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Interno (Unidad)</b></label>
+          <select id="pOTInterno"></select>
+        </div>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:10px">
+          <div>
+            <label class="muted"><b>Dominio</b></label>
+            <input id="pOTDominio" disabled />
+          </div>
+          <div>
+            <label class="muted"><b>Sociedad</b></label>
+            <input id="pOTSociedad" disabled />
+          </div>
+          <div>
+            <label class="muted"><b>Depósito</b></label>
+            <input id="pOTDeposito" disabled />
+          </div>
+          <div>
+            <label class="muted"><b>Sector</b></label>
+            <input id="pOTSector" disabled />
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Hoja preventiva</b></label>
+          <select id="pOTHP" onchange="onChangePrevHP()"></select>
+        </div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Quién solicita</b></label>
+          <input id="pOTSolicita" list="pOTSolicitaList" placeholder="Buscar por legajo o nombre..." />
+          <datalist id="pOTSolicitaList"></datalist>
+        </div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Descripción</b></label>
+          <textarea id="pOTDesc" placeholder="Observaciones / detalle..." style="min-height:120px"></textarea>
+        </div>
+
+        <div id="pOTMsg" class="error" style="display:none"></div>
+      </div>
+
+      <div class="card">
+        <div class="muted"><b>Tareas del preventivo (obligatorias)</b></div>
+        <div id="pOTTasks" style="max-height:420px;overflow:auto;margin-top:10px">
+          <div class="muted">Seleccioná una hoja preventiva…</div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <button class="btn secondary" onclick="closeOTNewPrev()">Cancelar</button>
+          <button class="btn" id="btnSavePrevOT" onclick="saveOTNewPrev()">Crear OT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: CONFIRMAR OT -->
+<div class="modalBackdrop" id="modalOTConfirm">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Confirmar OT</h3>
+      <button class="btn secondary" onclick="closeOTConfirm()">Cerrar</button>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px">
+      <div class="card">
+        <div class="muted"><b>Operarios (4)</b></div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:10px">
+          <div><select id="op1"></select></div>
+          <div><select id="op2"></select></div>
+          <div><select id="op3"></select></div>
+          <div><select id="op4"></select></div>
+        </div>
+        <div class="hint">Buscás por legajo o nombre.</div>
+      </div>
+
+      <div class="card">
+        <div class="muted"><b>Supervisor</b></div>
+        <div style="margin-top:10px">
+          <select id="sup1"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="muted"><b>Checklist de tareas</b></div>
+      <div class="tasksBox" id="cTasks"></div>
+      <div class="hint">Si destildás alguna, la OT queda <b>PARCIAL</b>.</div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeOTConfirm()">Cancelar</button>
+      <button class="btn" id="btnSaveOTConfirm" onclick="saveOTConfirm()">Confirmar</button>
+    </div>
+    <div id="cOTMsg" class="error" style="display:none"></div>
+  </div>
+</div>
+
+<!-- MODAL: NUEVA OT (CORRECTIVA) -->
+<div class="modalBackdrop" id="modalOTNew">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Nueva OT (Correctiva)</h3>
+      <button class="btn secondary" onclick="closeOTNew()">Cerrar</button>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px">
+      <!-- izquierda -->
+      <div class="card">
+        <div class="muted"><b>Datos de la OT</b></div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Interno (Unidad)</b></label>
+          <select id="nOTInterno"></select>
+          <div class="hint">Interno — Dominio — Sociedad</div>
+        </div>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:10px">
+          <div>
+            <label class="muted"><b>Dominio</b></label>
+            <input id="nOTDominio" disabled />
+          </div>
+          <div>
+            <label class="muted"><b>Sociedad</b></label>
+            <input id="nOTSociedad" disabled />
+          </div>
+          <div>
+            <label class="muted"><b>Depósito</b></label>
+            <input id="nOTDeposito" disabled />
+          </div>
+          <div>
+            <label class="muted"><b>Sector</b></label>
+            <select id="nOTSector"></select>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Quién solicita</b></label>
+          <input id="nOTSolicita" list="nOTSolicitaList" placeholder="Buscar por legajo o nombre..." />
+          <datalist id="nOTSolicitaList"></datalist>
+          <div class="hint">Escribí y seleccioná del listado.</div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label class="muted"><b>Descripción</b></label>
+          <textarea id="nOTDesc" placeholder="Detalle de la falla / motivo..." style="min-height:120px"></textarea>
+        </div>
+
+        <div id="nOTMsg" class="error" style="display:none"></div>
+      </div>
+
+      <!-- derecha -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="muted"><b>Seleccionar tareas (Maestro)</b></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn secondary" onclick="setAllNewOT(true)">Tildar todo</button>
+            <button class="btn secondary" onclick="setAllNewOT(false)">Destildar</button>
+          </div>
+        </div>
+
+        <div class="controls" style="margin-top:10px">
+        <input id="nOTQ" placeholder="Buscar tarea (código o nombre)..." oninput="renderNewOTTasks()" />
+        </div>
+
+        <div class="hint" id="nOTCount" style="margin-top:8px"></div>
+        <div class="tasksBox" id="nOTTasks" style="margin-top:10px"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn secondary" onclick="closeOTNew()">Cancelar</button>
+      <button class="btn" id="btnSaveOTNew" onclick="saveOTNew()">Crear OT</button>
+    </div>
+  </div>
+</div>
+<!-- MODAL: NUEVA HOJA PREVENTIVA -->
+<div class="modalBackdrop" id="modalHPNew" style="display:none">
+  <div class="modal" style="max-width:1100px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h3>Nueva Hoja Preventiva</h3>
+      <button class="btn secondary" onclick="closeHPNew()">Cerrar</button>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="grid" style="grid-template-columns:2fr 1fr;gap:12px">
+        <div>
+          <label class="muted"><b>Nombre de la hoja</b></label>
+          <input id="hpNewNombre" placeholder="Ej: Aire acondicionado" />
+          <div class="hint">Obligatorio</div>
+        </div>
+
+        <div>
+          <label class="muted"><b>Estado</b></label>
+          <select id="hpNewEstado">
+            <option value="activo">activo</option>
+            <option value="inactivo">inactivo</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="muted"><b>Sector</b></label>
+          <select id="hpNewSector" onchange="renderHPLists()">
+            <option value="">Sector: seleccionar</option>
+          </select>
+          <div class="hint">Obligatorio</div>
+        </div>
+
+        <div>
+          <label class="muted"><b>Frecuencia (Cada Km)</b></label>
+        <input id="hpNewCadaKm" inputmode="numeric" placeholder="Ej: 15000" />
+          <div class="hint">Completá <b>Km</b> o <b>Días</b> (al menos uno).</div>
+          </div>
+
+<div>
+  <label class="muted"><b>Frecuencia (Cada Días)</b></label>
+  <input id="hpNewCadaDias" inputmode="numeric" placeholder="Ej: 90" />
+  <div class="hint">Si ponés Días, puede quedar Km vacío.</div>
+</div>
+
+
+
+
+        <div>
+          <label class="muted"><b>Buscar tarea</b></label>
+          <input id="hpNewQ" placeholder="Buscar por código o nombre..." oninput="renderHPLists()" />
+          <div class="hint">Primero elegí el sector, después buscá.</div>
+        </div>
+
+        <div style="grid-column:1/-1">
+          <label class="muted"><b>Descripción</b></label>
+          <textarea id="hpNewDesc" placeholder="(Opcional) detalle de la hoja" style="min-height:80px"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px;gap:12px">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="muted"><b>Tareas disponibles</b></div>
+          <div class="muted" id="hpAvailCount"></div>
+        </div>
+        <div class="tasksBox" id="hpAvail" style="margin-top:10px"></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="muted"><b>Seleccionadas</b></div>
+          <div class="muted" id="hpSelCount"></div>
+        </div>
+        <div class="tasksBox" id="hpSelected" style="margin-top:10px"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap">
+      <button class="btn secondary" onclick="closeHPNew()">Cancelar</button>
+      <button class="btn" id="btnSaveHPNew" onclick="saveHPNew()">Guardar hoja</button>
+    </div>
+
+    <div id="hpNewMsg" class="error" style="display:none"></div>
+  </div>
+</div>
+
+<!-- MODAL: EDITAR HOJA PREVENTIVA -->
+<div class="modalBackdrop" id="modalHPEdit" style="display:none">
+  <div class="modal" style="max-width:1100px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h3>Editar Hoja Preventiva</h3>
+      <button class="btn secondary" onclick="closeHPEdit()">Cerrar</button>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="grid" style="grid-template-columns:2fr 1fr;gap:12px">
+        <div>
+          <label class="muted"><b>Nombre de la hoja</b></label>
+          <input id="hpEditNombre" placeholder="Ej: Aire acondicionado" />
+          <div class="hint">Obligatorio</div>
+        </div>
+
+        <div>
+          <label class="muted"><b>Estado</b></label>
+          <select id="hpEditEstado">
+            <option value="activo">activo</option>
+            <option value="inactivo">inactivo</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="muted"><b>Sector</b></label>
+          <select id="hpEditSector" onchange="renderHPEditLists()">
+            <option value="">Sector: seleccionar</option>
+          </select>
+          <div class="hint">Obligatorio</div>
+        </div>
+
+        <div>
+          <label class="muted"><b>Frecuencia (Cada Km)</b></label>
+          <input id="hpEditCadaKm" inputmode="numeric" placeholder="Ej: 15000" />
+          <div class="hint">Completá <b>Km</b> o <b>Días</b> (al menos uno).</div>
+        </div>
+
+        <div>
+          <label class="muted"><b>Frecuencia (Cada Días)</b></label>
+          <input id="hpEditCadaDias" inputmode="numeric" placeholder="Ej: 90" />
+          <div class="hint">Si ponés Días, puede quedar Km vacío.</div>
+        </div>
+
+        <div>
+          <label class="muted"><b>Buscar tarea</b></label>
+          <input id="hpEditQ" placeholder="Buscar por código o nombre..." oninput="renderHPEditLists()" />
+          <div class="hint">Primero elegí el sector, después buscá.</div>
+        </div>
+
+        <div style="grid-column:1/-1">
+          <label class="muted"><b>Descripción</b></label>
+          <textarea id="hpEditDesc" placeholder="(Opcional) detalle de la hoja" style="min-height:80px"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px;gap:12px">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="muted"><b>Tareas disponibles</b></div>
+          <div class="muted" id="hpEditAvailCount"></div>
+        </div>
+        <div class="tasksBox" id="hpEditAvail" style="margin-top:10px"></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="muted"><b>Seleccionadas</b></div>
+          <div class="muted" id="hpEditSelCount"></div>
+        </div>
+        <div class="tasksBox" id="hpEditSelected" style="margin-top:10px"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap">
+      <button class="btn secondary" onclick="closeHPEdit()">Cancelar</button>
+      <button class="btn" id="btnSaveHPEdit" onclick="saveHPEdit()">Guardar cambios</button>
+    </div>
+
+    <div id="hpEditMsg" class="error" style="display:none"></div>
+  </div>
+</div>
+
+
+<!-- MODAL: VER HOJA PREVENTIVA (OJITO) -->
+<div class="modalBackdrop" id="modalHPView" style="display:none">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <h3>Consulta Hoja Preventiva</h3>
+      <button class="btn secondary" onclick="closeHPView()">Cerrar</button>
+    </div>
+
+    <div class="twoCol" style="margin-top:10px">
+      <div class="card">
+        <div class="muted"><b>Hoja</b></div>
+        <div style="display:grid;gap:6px;margin-top:8px">
+          <div><b>Nombre:</b> <span id="vHPNombre">-</span></div>
+          <div><b>Sector:</b> <span id="vHPSector">-</span></div>
+          <div><b>Frecuencia:</b> <span id="vHPFreq">-</span></div>
+          <div><b>Estado:</b> <span id="vHPEstado">-</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="muted"><b>Descripción</b></div>
+        <div id="vHPDesc" style="white-space:pre-wrap;margin-top:8px"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="muted"><b>Tareas</b></div>
+      <div class="tasksBox" id="vHPTareas"></div>
+    </div>
+
+    <div id="vHPMsg" class="error" style="display:none"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<!-- ===================== ESTADO UNIDAD: REPROGRAMAR ===================== -->
+<div class="modalBackdrop" id="modalEUReprog" style="display:none">
+  <div class="modal" style="max-width:720px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <div>
+        <div style="font-size:18px;font-weight:1000">Reprogramar preventivo</div>
+        <div class="muted" id="euRepSub">-</div>
+      </div>
+      <button class="btn secondary" onclick="closeEUReprog()">Cerrar</button>
+    </div>
+
+    <div class="row" style="margin-top:10px">
+      <div>
+        <label class="muted"><b>Interno</b></label>
+        <input id="euRepInterno" disabled />
+      </div>
+      <div>
+        <label class="muted"><b>Preventivo</b></label>
+        <input id="euRepNombre" disabled />
+      </div>
+    </div>
+
+    <div id="euRepKmWrap" style="display:none;margin-top:10px">
+      <label class="muted"><b>Último Km (nuevo)</b></label>
+      <input id="euRepUltKm" inputmode="numeric" placeholder="Ej: 123456" />
+      <div class="hint">Se recalcula Próximo = Último + CadaKm.</div>
+
+      <div style="margin-top:10px">
+        <label class="muted"><b>Fecha realizada (nueva)</b></label>
+        <input id="euRepUltFechaKm" type="date" />
+        <div class="hint">Dejá hoy si no corresponde ajustar la fecha.</div>
+      </div>
+    </div>
+
+    <div id="euRepDiasWrap" style="display:none;margin-top:10px">
+      <label class="muted"><b>Última fecha (nueva)</b></label>
+      <input id="euRepUltFecha" type="date" />
+      <div class="hint">Se recalcula Próxima = Última + CadaDías.</div>
+    </div>
+
+    <div style="margin-top:10px">
+      <label class="muted"><b>Motivo</b></label>
+      <textarea id="euRepMotivo" placeholder="Ej: corrección por carga mal ingresada"></textarea>
+    </div>
+
+    <div id="euRepMsg" class="error" style="display:none;margin-top:10px"></div>
+
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px">
+      <button class="btn secondary" onclick="closeEUReprog()">Cancelar</button>
+      <button class="btn" id="btnEURepSave" onclick="saveEUReprog()">Guardar</button>
+    </div>
+  </div>
+</div>
