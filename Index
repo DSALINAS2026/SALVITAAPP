@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script>
+    // compat: evita crash si algún HTML viejo llama lint2() o estadoOT()
+    window.lint2 = window.lint2 || function(v){ return v; };
+    window.estadoOT = window.estadoOT || function(estado){
+      try{
+        if (typeof estadoOTBadge === "function") return estadoOTBadge(estado);
+      }catch(e){}
+      return (estado ?? "");
+    };
+  </script>
+
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <?!= include('ui_styles'); ?>
+</head>
+<body>
+  <div id="app"></div>
+  <?!= include('ui_modals'); ?>
+  <?!= include('ui_app_js'); ?>
+</body>
+</html>
